@@ -12,33 +12,33 @@ let maximumMassLimit = 850000;
 let fuelTempCelsius = -225;
 let minimumFuelTemp = -300;
 let maximumFuelTemp = -150;
-let fuelLevel = 100; //100%
+let fuelLevel = "100%"; //100%
 let weatherStatus = "clear";
 let preparedForLiftOff = true;
 
 
-if (astronautCount > 7){
-    preparedForLiftOff = false;
+if (astronautCount <= 7){
+    preparedForLiftOff = true;
 } 
 
-if (astronautStatus !== "ready"){
-    preparedForLiftOff = false;
+if (astronautStatus === "ready"){
+    preparedForLiftOff = true;
 } 
 
-if (totalMassKg > maximumMassLimit){
-    preparedForLiftOff = false;
+if (totalMassKg < maximumMassLimit){
+    preparedForLiftOff = true;
 } 
 
-if (fuelTempCelsius > maximumFuelTemp || fuelTempCelsius < minimumFuelTemp){
-    preparedForLiftOff = false;
+if (fuelTempCelsius < maximumFuelTemp || fuelTempCelsius > minimumFuelTemp){
+    preparedForLiftOff = true;
 } 
 
-if (fuelLevel <100){
-    preparedForLiftOff = false;
+if (fuelLevel === "100%"){
+    preparedForLiftOff = true;
 } 
 
-if (weatherStatus != "clear"){
-    preparedForLiftOff = false;
+if (weatherStatus === "clear"){
+    preparedForLiftOff = true;
 }
 
 if (preparedForLiftOff){
@@ -47,11 +47,11 @@ if (preparedForLiftOff){
     console.log("Date: " + date);
     console.log("Time: " + time);
     console.log("Astronaut Count: " + astronautCount);
-    console.log("Crew Mass: " + crewMassKg);
-    console.log("Fuel Mass: " + fuelMassKg);
-    console.log("Shuttle Mass: " + shuttleMassKg);
-    console.log("Total Mass: " + totalMassKg)
-    console.log("Fuel Temperature: " +fuelTempCelsius);
+    console.log("Crew Mass: " + crewMassKg + 'kg');
+    console.log("Fuel Mass: " + fuelMassKg + "kg");
+    console.log("Shuttle Mass: " + shuttleMassKg + "kg");
+    console.log("Total Mass: " + totalMassKg + "kg")
+    console.log("Fuel Temperature: " +fuelTempCelsius + "C");
     console.log("Weather Status: " +weatherStatus);
     console.log("--------------------------------------------------------------");
     console.log("Have a safe trip astronauts!");
